@@ -3,7 +3,7 @@ Download all the files and "make" it:D
 
 **Server Usage**: Usage: ./socks5_server <proxy_port>  
 
-Friendly reminder: try www.illinois.edu instead of facebook.com or google.com or.. those website doesn't accept the connection from my server.  
+Friendly reminder: Tested on VM. try www.illinois.edu instead of facebook.com or google.com or.. those website doesn't accept the connection from my server.  
 
 Take look of demo idea, so you would know what you can do with my server:P
 
