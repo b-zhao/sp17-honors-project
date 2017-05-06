@@ -1,11 +1,13 @@
 # Welcome to SOCKS5 Proxy Server!
 Download all the files and "make" it:D
 
-Server Usage: Usage: ./socks5_server <proxy_port>
-Friendly reminder: try www.illinois.edu instead of facebook.com or google.com or.. those website doesn't accept the connection from my server.
+**Server Usage**: Usage: ./socks5_server <proxy_port>  
+
+Friendly reminder: try www.illinois.edu instead of facebook.com or google.com or.. those website doesn't accept the connection from my server.  
+
 Take look of demo idea, so you would know what you can do with my server:P
 
-Client Usage: TBD...(due to naughty google, i spend a whole day debug a nonexisted bug, which there is still other bug exist in client code, sorry...;3
+**Client Usage**: TBD...(due to naughty google, i spend a whole day debug a nonexisted bug, which there is still other bug exist in client code, sorry...;3
 
 
 ## Demo idea
