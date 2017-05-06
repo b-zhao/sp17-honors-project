@@ -384,10 +384,17 @@ int transfer_data(int client_sock, int target_server_sock) {
 		else {
 			for (int i=0; i < read_fd_count; i++) {
 				if (FD_ISSET(my_read_fds[i], &readfds) && my_read_fds[i] == client_sock) {
-					fprintf(stderr, "client can read!\n");
 					bzero(buffer, BUFF_SIZE);
 					ret = recv(my_read_fds[i], buffer, BUFF_SIZE, 0);
-					if(ret > 0) {
+					if(ret < 0) {
+						perror("recv from client error");
+						return SOCKS5_ERROR_RECV_CLIENT;
+					}
+					else if(ret == 0) {
+						fprintf(stderr, "client close socket.\n");
+						break;
+					}
+					else {
 				 		fprintf(stderr, "%s", buffer);
 				 		fprintf(stderr, "recv %d bytes from client.\n", ret);
 						ret = send(target_server_sock, buffer, ret, 0);
@@ -397,20 +404,19 @@ int transfer_data(int client_sock, int target_server_sock) {
 						}
 					 	fprintf(stderr, "send %d bytes to client!\n", ret);
 				 	}
-					else if(ret == 0){
-						fprintf(stderr, "client close socket.\n");
+				}
+				else if (FD_ISSET(my_read_fds[i], &readfds) && my_read_fds[i] == target_server_sock) {
+					bzero(buffer, BUFF_SIZE);
+					ret = recv(my_read_fds[i], buffer, BUFF_SIZE, 0);
+					if(ret < 0){
+						perror("recv from real server error");
+						return SOCKS5_ERROR_RECV_SERVER;
+					}
+					else if(ret == 0) {
+						fprintf(stderr, "real server close socket.\n");
 						break;
 					}
 					else {
-						perror("recv from client error");
-						return SOCKS5_ERROR_RECV_CLIENT;
-					}
-				}
-				else if (FD_ISSET(my_read_fds[i], &readfds) && my_read_fds[i] == target_server_sock) {
-					fprintf(stderr, "real server can read!\n");
-					bzero(buffer, BUFF_SIZE);
-					ret = recv(my_read_fds[i], buffer, BUFF_SIZE, 0);
-					if(ret > 0) {
 						fprintf(stderr, "%s", buffer);
 						fprintf(stderr, "recv %d bytes from real server.\n", ret);
 						ret = send(client_sock, buffer, ret, 0);
@@ -418,14 +424,6 @@ int transfer_data(int client_sock, int target_server_sock) {
 							perror("send data to client error");
 							break;
 						}
-					}
-					else if(ret == 0) {
-						fprintf(stderr, "real server close socket.\n");
-						break;
-					}
-					else {
-						perror("recv from real server error");
-						return SOCKS5_ERROR_RECV_SERVER;
 					}
 				}
 
