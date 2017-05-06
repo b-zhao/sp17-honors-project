@@ -1,8 +1,4 @@
-## TODO:
-1. Error handling
-2. Client connect timeout
-3. Use getaddrinfo to replace addrin
-4. Code clean up
+# Welcome to SOCKS5 Proxy Server!
 
 ## Demo idea
 ### 1. Basic connection status
@@ -37,3 +33,12 @@ add two lines:
 1.2 curl --proxy socks5://admin:123@localhost:1997 www.google.com --> pass authentication
 
 2. netstat -tlnp
+
+
+
+
+## TODO:
+1. Error handling
+2. Client connect timeout
+3. Use getaddrinfo to replace addrin
+4. Code clean up
