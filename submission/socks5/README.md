@@ -1,4 +1,5 @@
 # Welcome to SOCKS5 Proxy Server!
+Download all the files and "make" it:D
 
 ## Demo idea
 ### 1. Basic connection status
