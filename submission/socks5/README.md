@@ -5,6 +5,8 @@ Download all the files and "make" it:D
 
 Friendly reminder: Tested on VM. try www.illinois.edu instead of facebook.com or google.com or.. those website doesn't accept the connection from my server.  
 
+And i didn't comment out the print, so please ignore those crazy error messages and don't leave it run on the background forever, otherwise the ews machine will complain about the explosion of temp cache file.  
+
 Take look of demo idea, so you would know what you can do with my server:P
 
 **Client Usage**: TBD...(due to naughty google, i spend a whole day debug a nonexisted bug, which there is still other bug exist in client code, sorry...;3
