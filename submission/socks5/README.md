@@ -29,7 +29,8 @@ sudo /etc/hosts
 add two lines:
 127.0.0.1 illinois.edu
 127.0.0.1 www.illinois.edu
-#### 2
+#### 2. Test for successfully block
+#### 3. Link to server and test for bypassing firewall
 
 ## useful termianl cmd
 1. curl --proxy socks5://admin:12345@localhost:1997 www.google.com --> fail authentication
