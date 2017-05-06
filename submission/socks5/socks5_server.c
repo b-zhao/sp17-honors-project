@@ -132,6 +132,7 @@ void encrypt(char* origin,size_t len,int * key,int key_len){
         origin[i] = origin[i]^key[i%key_len];
     }
 }
+
 // Select auth method, return 0 if success, -1 if failed
 int select_method(int client_sock) {
 	// /*
@@ -238,7 +239,7 @@ int auth_client(int client_sock) {
 
 
 // parse command, and try to connect real server.
-// return socket for success, -1 for failed.
+// return socket for success, error code for failed.
 int ack_request(int client_sock) {
 	fprintf(stderr, "%s reached line %d in %s\n", __FILE__,__LINE__,__FUNCTION__);
 
