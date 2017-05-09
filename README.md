@@ -1,5 +1,5 @@
 # sp17-honors-project
 
-## *Please check on our final work on folder "submission" :D*
+## *Please check on our final work in folder "submission" :D*
 
 
